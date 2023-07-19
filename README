@@ -14,15 +14,7 @@ Section 1.1 Attention is all you need.
 
 One key feature of the transformer architecture is the attention mechanism, which prioritizes important elements of the input while discarding non-critical ones. Multi-head attention is used to process multiple input sequences in parallel. The Encoder's output is fed to the Decoder, which also takes the previous timestamp output from itself. The Decoder's output is then converted into probabilities for each part of the input sequence.
 
-
-
-
-
-
-
-
-
-
+place hlder for attention figures
 
 The specific attention mechanism used in the architecture is self-attention. This mechanism automatically adjusts the weight of different elements of the input sequence according to their influence on the output. This is particularly important in language processing tasks, where the meaning of words in a sentence can change based on the context.
 
@@ -43,12 +35,7 @@ An example of how a Transformer works can be seen in machine translation:
 8.	The logits vector is fed into a SoftMax layer, generating probability values for each index.
 9.	The word corresponding to the index with the highest probability is then predicted from the word vocabulary.
 
- 
-
-
-
-
-
+ place holder for figure
 
 Additionally, recent research has explored the integration of external knowledge into attention mechanisms. Techniques such as knowledge-enhanced attention mechanisms or graph attention networks have been proposed to leverage external knowledge graphs or structured data to augment the model's understanding and improve its performance on specific tasks.
 
@@ -57,6 +44,15 @@ Section 1.2: Fine Tuning for downstream tasks.
 
 Training and fine-tuning the Transformer model typically involves fine-tuning a language model (such as BERT) on a specific task, like sentiment analysis. This process includes several steps such as loading the training and test datasets, tokenizing and input formatting, creating PyTorch data loaders, and training the model. The training process also includes optimizing and creating a learning rate scheduler to fine-tune the BERT classifier, evaluating it against a validation dataset, and making predictions on the test dataset.
 
+Section 1.3: Advanced Fine-Tuning Techniques: Stochastic Fine-tuning and Reinforcement Learning from Human Feedback
+
+Subsection 1.3.1: Stochastic Fine-tuning (SFT):
+
+SFT is an advanced form of fine-tuning that involves perturbing the model's weights randomly to a small degree during the fine-tuning process. This stochastic perturbation of the model's weights allows the model to explore a larger space of possible weight configurations and can improve the model's ability to generalize to unseen data. This process creates an ensemble-like effect, where the model becomes less tied to the specific weights it learned during initial training and more adaptable to various tasks it may encounter. The downside is that SFT might need more computational resources and time due to the need for exploring larger space.
+
+Subsection 1.3.2: Reinforcement Learning from Human Feedback (RLHF):
+
+RLHF is another approach to fine-tuning large language models. It involves using human feedback to generate a reward signal that guides the fine-tuning process. The model is initially fine-tuned using supervised learning with human-provided demonstrations, after which a reward model is trained by ranking different model responses based on quality. The model is then further fine-tuned using Proximal Policy Optimization with the reward model guiding the optimization. This iterative process allows the model to gradually improve its performance over time, guided by continuous feedback from humans. It's important to note that RLHF requires careful implementation to avoid pitfalls such as reward hacking, where the model learns to exploit flaws in the reward model to achieve higher reward without actually performing the task better.
 
 
 Section 2: In-Context Learning and Its Forms: Weights Frozen
